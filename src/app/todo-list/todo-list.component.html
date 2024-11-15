@@ -1,0 +1,17 @@
+<h2>Todo List</h2>
+<form (ngSubmit)="addTask()">
+  <input type="text" [(ngModel)]="taskText" name="taskText" placeholder="Add a task" required />
+  <select [(ngModel)]="priority" name="priority">
+    <option value="high">High</option>
+    <option value="medium">Medium</option>
+    <option value="low">Low</option>
+  </select>
+  <input type="date" [(ngModel)]="dueDate" name="dueDate" required />
+  <button type="submit">Add Task</button>
+</form>
+<ul>
+  <li *ngFor="let task of tasks">
+    {{ task.text }} ({{ task.priority }})
+    <button (click)="deleteTask(task.id)">Delete</button>
+  </li>
+</ul>
